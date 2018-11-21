@@ -1,3 +1,4 @@
 [submodule ".local/repositories/gen-ssc"]
 	path = .local/repositories/gen-ssc
 	url = git@github.com:kaznak/gen-ssc.git
+#	url = https://github.com/kaznak/gen-ssc.git
