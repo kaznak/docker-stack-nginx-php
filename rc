@@ -1,2 +1,2 @@
 
-PATH=$(find $PWD/.local/ -type d -name bin|tr '\n' ':')$PATH
+PATH=$PWD/bin:$(find $PWD/.local/ -type d -name bin|tr '\n' ':')$PATH
