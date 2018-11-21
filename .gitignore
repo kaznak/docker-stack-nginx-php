@@ -15,3 +15,4 @@ nogit_*
 # ** Vi
 *.swp
 
+nginx/CA
