@@ -4,6 +4,8 @@ services:
 
   nginx: 
     image: nginx:stable-alpine
+    networks:
+      - nginx
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/CA:/etc/nginx/CA
@@ -11,11 +13,13 @@ services:
     ports: 
       - 80:80
       - 443:443
-    links:
-      - php-fpm
-  
-  php-fpm: 
+
+  php-fpm:
     image: php:fpm-alpine
+    networks:
+      - nginx
     volumes:
       - ./${APPD:-app}:/var/www/html
 
+networks:
+  nginx:
