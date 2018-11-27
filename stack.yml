@@ -20,8 +20,22 @@ services:
     image: php:fpm-alpine
     networks:
       - nginx
+      - mysql
     volumes:
       - ./${APPD:-app}:/var/www/html
 
+  mysql:
+    image: msql:5
+    networks:
+      - mysql
+#     ports:
+#       - 3306:3306
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+
 networks:
   nginx:
+  mysql:
